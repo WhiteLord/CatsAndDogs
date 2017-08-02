@@ -28,7 +28,8 @@ public class GenericsActivity extends Activity {
 
     private int currentSelection = 0;
 
-    CatAdapter catAdapter;
+    AdoptAdapter catAdapter;
+    AdoptAdapter dogAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,10 @@ public class GenericsActivity extends Activity {
             }
         });
 
-        catAdapter = new CatAdapter(this,nameTextView,descriptionTextView,ratingView,portraitView);
+        catAdapter = new AdoptAdapter(this,nameTextView,descriptionTextView,ratingView,portraitView);
+        dogAdapter = new AdoptAdapter(this, nameTextView, descriptionTextView, ratingView, portraitView);
         catAdapter.set(AdoptData.mCatList.get(0));
+        dogAdapter.set(AdoptData.mDogList.get(0));
 
     }
 
@@ -56,11 +59,11 @@ public class GenericsActivity extends Activity {
         int random = currentSelection;
         while(random == currentSelection){
             //avoid same selection twice.
-            random = (int )(Math.random() * AdoptData.mCatList.size());
+            random = (int )(Math.random() * AdoptData.mDogList.size());
         }
         currentSelection = random;
-        Cat c = AdoptData.mCatList.get(random);
-        catAdapter.set(c);
+        Dog d = AdoptData.mDogList.get(random);
+        catAdapter.set(d);
     }
 
 

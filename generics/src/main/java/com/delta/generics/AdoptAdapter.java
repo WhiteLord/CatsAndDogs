@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * Created by learnovate on 2/25/14.
  */
-public class CatAdapter {
+public class AdoptAdapter<T extends Animal & Adoptable> {
 
     private Activity activity;
     private TextView name;
@@ -16,9 +16,9 @@ public class CatAdapter {
     private RatingBar ratingBar;
     private ImageView imageView;
 
-    private Cat t;
+    private T t;
 
-    public CatAdapter(Activity aActivity, TextView aName, TextView aDescription, RatingBar aBar, ImageView aImageView){
+    public AdoptAdapter(Activity aActivity, TextView aName, TextView aDescription, RatingBar aBar, ImageView aImageView){
         this.activity = aActivity;
         this.name = aName;
         this.description = aDescription;
@@ -26,12 +26,12 @@ public class CatAdapter {
         this.imageView = aImageView;
     }
 
-    public void set(Cat t) {
+    public void set(T t) {
         this.t = t;
         updateView();
     }
 
-    public Cat get() {
+    public T get() {
         return t;
     }
 
